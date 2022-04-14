@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
 import SelectedBeast from './SelectedBeast';
+import Forms from './Forms';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './data.json';
 
@@ -12,19 +13,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      title: '',
-      img_url: '',
-      description: '',
-
+      beast: data,
+      selectedBeast: data[0]
     }
   }
 
-  openModal = (description,image,title) => {
+  openModal = (beast) => {
     this.setState({
       showModal: true,
-      title: title,
-      img_url: image,
-      description: description
+      selectedBeast: beast
 
     });
   }
@@ -34,28 +31,37 @@ class App extends React.Component {
       showModal: false,
     });
   }
+  handleFormSubmit = (e) => {
+    let num = e.target.value;
+    let newdata = data.filter((element)=> element.horns ===  parseInt(num));
+    this.setState ({
+      beast: newdata
+    })
+    
+  }
 
   render() {
     return (
       <>
       <Header/>
 
+      <Forms
+        handleFormSubmit={this.handleFormSubmit}
+
+      />
+
       <Main
-      data={data}
-      showModal={this.state.showModal}
-      openModal={this.openModal}
-      hideModal={this.hideModal}
-      title={this.state.title}
-      img_url={this.state.img_url}
-      description={this.state.description}
+        beast ={this.state.beast}
+        data = {data} 
+        openModal={this.openModal}
       />
+
       <SelectedBeast
-      title={this.state.title}
-      img_url={this.state.img_url}
-      description={this.state.description}
-      hideModal={this.hideModal}
-      showModal={this.state.showModal}
+        beast={this.state.selectedBeast}
+        hideModal={this.hideModal}
+        showModal={this.state.showModal}
       />
+
 
 
     
