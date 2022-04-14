@@ -14,14 +14,18 @@ class HornedBeast extends React.Component {
   handelFavs = () => {
     this.setState({
       favs: this.state.favs + 1
+      
     })
+    this.props.openModal(this.props.description,this.props.img_url,this.props.title);
   }
+  
+
 
   render() {
     return (
       <Card className="cards">
 
-      <Card.Img variant="top" onClick={this.handelFavs}style={{cursor:'pointer'}} src ={this.props.image_Url} alt={this.props.name} title={this.props.name}/>
+      <Card.Img variant="top" onClick={this.handelFavs}style={{cursor:'pointer'}} src ={this.props.img_url} alt={this.props.name} title={this.props.name}/>
       <Card.Body>
 
       <Card.Title>
