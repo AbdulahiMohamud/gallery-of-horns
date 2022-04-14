@@ -11,12 +11,10 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-      {this.props.data.map((element,index) => (
+      {this.props.beast.map((element,index) => (
 
         <HornedBeast
-        title={element.title}
-        img_url={element.image_url}
-        description={element.description}
+        beast={element}
         key = {index}
         openModal={this.props.openModal}
         />

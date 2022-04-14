@@ -16,7 +16,7 @@ class HornedBeast extends React.Component {
       favs: this.state.favs + 1
       
     })
-    this.props.openModal(this.props.description,this.props.img_url,this.props.title);
+    this.props.openModal(this.props.beast);
   }
   
 
@@ -25,11 +25,11 @@ class HornedBeast extends React.Component {
     return (
       <Card className="cards">
 
-      <Card.Img variant="top" onClick={this.handelFavs}style={{cursor:'pointer'}} src ={this.props.img_url} alt={this.props.name} title={this.props.name}/>
+      <Card.Img variant="top" onClick={this.handelFavs}style={{cursor:'pointer'}} src ={this.props.beast.image_url} alt={this.props.beast.name} title={this.props.beast.name}/>
       <Card.Body>
 
       <Card.Title>
-        {this.props.name}
+        {this.props.beast.name}
         </Card.Title>
 
       <Card.Text>
@@ -37,7 +37,7 @@ class HornedBeast extends React.Component {
         </Card.Text>
 
       <Card.Text>
-        {this.props.description}
+        {this.props.beast.description}
         </Card.Text>
 
       </Card.Body>
