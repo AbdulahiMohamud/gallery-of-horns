@@ -39,3 +39,13 @@ Start time: 2:00
 Finish time: 6:30
 
 Actual time needed to complete: 4h30min
+
+Number and name of feature: Filter by Numbers of Horns
+
+Estimate of time needed to complete: 2h
+
+Start time: 2:00
+
+Finish time: 4:30
+
+Actual time needed to complete: 2h30min
